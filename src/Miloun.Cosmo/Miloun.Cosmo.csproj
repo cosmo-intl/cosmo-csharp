@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>disable</ImplicitUsings>
+
+    <PackageId>Miloun.Cosmo</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Miloun</Authors>
+    <Company>Miloun</Company>
+    <Description>Application localisation for .NET — a thin, ergonomic layer over ICU (via ICU4C). Bundles no locale data of its own; every result comes straight from ICU.</Description>
+    <PackageProjectUrl>https://github.com/cosmo-intl/cosmo-csharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cosmo-intl/cosmo-csharp</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RootNamespace>Miloun.Cosmo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+  </ItemGroup>
+
+</Project>
