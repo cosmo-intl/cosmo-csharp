@@ -1,0 +1,29 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["src/Miloun.Cosmo/Miloun.Cosmo.csproj"]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["api/**.yml", "api/index.md"]
+      },
+      {
+        "files": ["index.md"]
+      }
+    ],
+    "globalMetadata": {
+      "_appName": "Cosmo (.NET)",
+      "_appTitle": "Cosmo (.NET) — API Reference",
+      "_enableSearch": true,
+      "_disableContribution": true
+    },
+    "dest": "site"
+  }
+}
