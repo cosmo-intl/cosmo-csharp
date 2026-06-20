@@ -11,12 +11,16 @@
     <Version>0.1.0</Version>
     <Authors>Miloun</Authors>
     <Company>Miloun</Company>
-    <Description>Application localisation for .NET — a thin, ergonomic layer over ICU (via ICU4C). Bundles no locale data of its own; every result comes straight from ICU.</Description>
+    <Description>Locale-aware formatting for .NET — turn raw numbers, money, dates and text into the polished output your users expect, in any language, script, calendar and time zone. Dead simple, production-ready, fast.</Description>
+    <PackageTags>localization;globalization;internationalization;i18n;l10n;formatting;culture;locale;icu;cldr;currency;dates;numbers;pluralization;unicode</PackageTags>
     <PackageProjectUrl>https://github.com/cosmo-intl/cosmo-csharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/cosmo-intl/cosmo-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RootNamespace>Miloun.Cosmo</RootNamespace>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>

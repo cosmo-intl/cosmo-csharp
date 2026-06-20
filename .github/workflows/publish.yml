@@ -1,0 +1,44 @@
+name: Publish to NuGet
+
+# Cut a release by pushing a version tag, e.g.:
+#   git tag v0.1.0 && git push origin v0.1.0
+# The package version is taken from the tag (v0.1.0 -> 0.1.0).
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # required: GitHub OIDC token for NuGet Trusted Publishing
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Pack
+        run: >
+          dotnet pack src/Miloun.Cosmo/Miloun.Cosmo.csproj
+          -c Release
+          -o "${{ github.workspace }}/artifacts"
+          -p:Version="${GITHUB_REF_NAME#v}"
+
+      # Exchange the OIDC token for a short-lived (1h) NuGet API key.
+      - name: NuGet login (Trusted Publishing)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: miloun   # your nuget.org username / profile name (NOT your email)
+
+      - name: Push package + symbols
+        run: >
+          dotnet nuget push artifacts/*.nupkg
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
